@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.photon.phresco.performance</groupId>
+    <artifactId>sample-androidnative</artifactId>
+    <packaging>apkperf</packaging>
+    <name>sample-androidnative</name>
+    <version>1.0</version>
+    <build>
+        <sourceDirectory>src</sourceDirectory>
+        <outputDirectory>do_not_checkin/target/android-classes</outputDirectory>
+        <directory>do_not_checkin/target</directory>
+        <plugins>
+            <plugin>
+                <groupId>com.photon.maven.plugins.android.generation2</groupId>
+                <artifactId>android-maven-plugin</artifactId>
+                <version>2.3.0.7000</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <run xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                        <debug>false</debug>
+					</run>
+                    <sdk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                        <platform>${android.version}</platform>
+					</sdk>
+                    <extractDuplicates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">true</extractDuplicates>
+                    <undeployBeforeDeploy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">true</undeployBeforeDeploy>
+                    <androidManifestFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">AndroidManifest.xml</androidManifestFile>
+                    <resourceDirectory xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">res</resourceDirectory>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>com.google.android</groupId>
+            <artifactId>android-test</artifactId>
+            <version>2.3.3</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.android</groupId>
+            <artifactId>android</artifactId>
+            <version>${android.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.jayway.android.robotium</groupId>
+            <artifactId>robotium-solo</artifactId>
+            <version>3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.photon.phresco</groupId>
+            <artifactId>sample-androidnative</artifactId>
+            <version>1.0</version>
+            <type>jar</type>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.photon.phresco</groupId>
+            <artifactId>sample-androidnative</artifactId>
+            <version>1.0</version>
+            <type>apk</type>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+    <properties>
+        <android.version xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">4.2</android.version>
+    </properties>
+</project>
